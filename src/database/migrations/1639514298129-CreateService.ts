@@ -1,10 +1,11 @@
 import { MigrationInterface, QueryRunner, Table, TableForeignKey } from "typeorm";
 
-export class CreateCompany1639512349556 implements MigrationInterface {
+export class CreateService1639514298129 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
+
         await queryRunner.createTable(new Table({
-            name: "company",
+            name: "service",
             columns: [
                 {
                     name: "id",
@@ -12,45 +13,28 @@ export class CreateCompany1639512349556 implements MigrationInterface {
                     isPrimary: true,
                 },
                 {
-                    name: "name",
+                    name: "description",
                     type: "varchar",
                 },
                 {
-                    name: "document",
-                    type: "varchar",
-                },
-                {
-                    name: "phone",
-                    type: "varchar"
-                },
-                {
-                    name: "email",
-                    type: "varchar"
-                },
-                {
-                    name: "password",
-                    type: "varchar",
-                },
-                {
-                    name: "address_id",
+                    name: "company_id",
                     type: "uuid",
                 },
                 {
-                    name: 'created_at',
+                    name: "created_at",
                     type: "timestamp",
                     default: "now()",
                 },
                 {
-                    name: 'updated_at',
+                    name: "updated_at",
                     type: "timestamp",
-                    default: "now()",
-                }
+                },
             ],
             foreignKeys: [
                 {
-                    name: 'fk_company_address',
-                    columnNames: ["address_id"],
-                    referencedTableName: "address",
+                    name: "fk_service_company",
+                    columnNames: ["company_id"],
+                    referencedTableName: "company",
                     referencedColumnNames: ["id"],
                     onDelete: "CASCADE",
                 },
@@ -59,7 +43,7 @@ export class CreateCompany1639512349556 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("company");
+        await queryRunner.dropTable('service');
     }
 
 }
