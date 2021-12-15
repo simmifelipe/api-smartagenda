@@ -28,6 +28,7 @@ export class CreateService1639514298129 implements MigrationInterface {
                 {
                     name: "updated_at",
                     type: "timestamp",
+                    isNullable: true,
                 },
             ],
             foreignKeys: [
