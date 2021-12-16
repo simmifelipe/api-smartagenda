@@ -38,6 +38,11 @@ export class CreateAddress1639501441631 implements MigrationInterface {
                         type: "timestamp",
                         default: "now()",
                     },
+                    {
+                        name: "updated_at",
+                        type: "timestamp",
+                        isNullable: true,
+                    },
                 ]
             })
         )

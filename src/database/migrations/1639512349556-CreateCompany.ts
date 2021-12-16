@@ -18,18 +18,11 @@ export class CreateCompany1639512349556 implements MigrationInterface {
                 {
                     name: "document",
                     type: "varchar",
+                    isUnique: true,
                 },
                 {
                     name: "phone",
                     type: "varchar"
-                },
-                {
-                    name: "email",
-                    type: "varchar"
-                },
-                {
-                    name: "password",
-                    type: "varchar",
                 },
                 {
                     name: "address_id",
@@ -43,7 +36,7 @@ export class CreateCompany1639512349556 implements MigrationInterface {
                 {
                     name: 'updated_at',
                     type: "timestamp",
-                    default: "now()",
+                    isNullable: true,
                 }
             ],
             foreignKeys: [
