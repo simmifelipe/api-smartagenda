@@ -1,5 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 import { Address } from '../../address/entities/Address';
+import { Company } from '../entities/Company';
 import { ICompanyRepository } from '../repositories/implementations/ICompanyRepository';
 
 interface IRequest {
@@ -19,14 +20,14 @@ class CreateCompanyUseCase {
     private companyRepository: ICompanyRepository
   ) { }
 
-  async execute({ name, document, phone, address, email, password }: IRequest): Promise<void> {
+  async execute({ name, document, phone, address, email, password }: IRequest): Promise<Company | Error> {
     const companyAlreadyExist = await this.companyRepository.findByDocument(document);
 
     if (companyAlreadyExist) {
-      throw new Error("Company with this document number already exist");
+      return new Error("Company with this document number already exist");
     }
 
-    this.companyRepository.create({ name, document, phone, address, email, password });
+    return this.companyRepository.create({ name, document, phone, address, email, password });
   }
 }
 

@@ -1,7 +1,9 @@
 import { getRepository, Repository } from "typeorm";
 import { Company } from "../entities/Company";
-import { ICompanyRepository, ICreateCompanyDTO } from "./implementations/ICompanyRepository";
-
+import {
+  ICompanyRepository,
+  ICreateCompanyDTO,
+} from "./implementations/ICompanyRepository";
 
 class CompanyRepository implements ICompanyRepository {
   private repository: Repository<Company>;
@@ -11,10 +13,15 @@ class CompanyRepository implements ICompanyRepository {
   }
 
   async findByDocument(document: string): Promise<Company> {
-    return this.repository.findOne({ where: { document: document } })
+    return this.repository.findOne({ where: { document: document } });
   }
 
-  async create({ name, document, phone, address }: ICreateCompanyDTO): Promise<void> {
+  async create({
+    name,
+    document,
+    phone,
+    address,
+  }: ICreateCompanyDTO): Promise<Company> {
     const company = this.repository.create({
       name,
       document,
@@ -22,7 +29,7 @@ class CompanyRepository implements ICompanyRepository {
       address,
     });
 
-    await this.repository.save(company);
+    return await this.repository.save(company);
   }
 }
 

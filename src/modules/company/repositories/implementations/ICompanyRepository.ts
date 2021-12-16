@@ -13,7 +13,7 @@ interface ICreateCompanyDTO {
 
 interface ICompanyRepository {
 
-  create({ name, document, phone, address, email, password }: ICreateCompanyDTO): Promise<void>;
+  create({ name, document, phone, address, email, password }: ICreateCompanyDTO): Promise<Company | Error>;
   findByDocument(document: string): Promise<Company>;
 
 }
