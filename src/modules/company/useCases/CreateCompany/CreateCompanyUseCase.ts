@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
-import { Address } from '../../address/entities/Address';
-import { Company } from '../entities/Company';
-import { ICompanyRepository } from '../repositories/implementations/ICompanyRepository';
+import { Address } from '../../../address/entities/Address';
+import { Company } from '../../entities/Company';
+import { ICompanyRepository } from '../../repositories/implementations/ICompanyRepository';
 
 interface IRequest {
   name: string;

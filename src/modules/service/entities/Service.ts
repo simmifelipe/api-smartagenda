@@ -1,20 +1,27 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryColumn,
+} from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 import { Company } from "../../company/entities/Company";
 
 @Entity()
 export class Service {
-
   @PrimaryColumn()
   id: string;
 
   @Column()
   description: string;
 
-  @Column()
+  @Column({ name: "company_id" })
   company_id: string;
 
   @ManyToOne(() => Company)
+  @JoinColumn({ name: "company_id" })
   company: Company;
 
   @CreateDateColumn()

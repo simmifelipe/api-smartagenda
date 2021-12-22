@@ -7,7 +7,7 @@ interface CreateServiceDTO {
 
 interface IServiceRepository {
   create({ description, company_id }: CreateServiceDTO): Promise<Service>;
-  listByCompany(companyId: string): Promise<Service[]>;
+  listByCompany(company_id: string): Promise<Service[]>;
 }
 
 export { IServiceRepository, CreateServiceDTO };

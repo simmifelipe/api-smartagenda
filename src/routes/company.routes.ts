@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { CreateCompanyController } from '../modules/company/useCases/CreateCompanyController';
+import { CreateCompanyController } from '../modules/company/useCases/CreateCompany/CreateCompanyController';
 
 const companyRoutes = Router();
 
