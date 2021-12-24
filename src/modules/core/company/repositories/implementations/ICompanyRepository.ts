@@ -1,3 +1,4 @@
+import { AppError } from '../../../../../errors/AppError';
 import { Address } from '../../../address/entities/Address';
 import { Company } from '../../entities/Company';
 
@@ -13,7 +14,7 @@ interface ICreateCompanyDTO {
 
 interface ICompanyRepository {
 
-  create({ name, document, phone, address, email, password }: ICreateCompanyDTO): Promise<Company | Error>;
+  create({ name, document, phone, address, email, password }: ICreateCompanyDTO): Promise<Company | AppError>;
   findByDocument(document: string): Promise<Company>;
 
 }
