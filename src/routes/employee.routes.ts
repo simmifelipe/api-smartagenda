@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { CreateEmployeeController } from "../modules/employee/useCases/CreateEmployee/CreateEmployeeController";
+import { CreateEmployeeController } from "../modules/core/employee/useCases/CreateEmployee/CreateEmployeeController";
 
 const employeeRoutes = Router();
 
