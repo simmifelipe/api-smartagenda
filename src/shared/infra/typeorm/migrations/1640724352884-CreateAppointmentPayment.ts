@@ -43,9 +43,9 @@ export class CreateAppointmentPayment1640724352884 implements MigrationInterface
           referencedColumnNames: ["id"],
         },
         {
-          name: "fk_appointment_payment",
+          name: "fk_appointment_payment_type",
           columnNames: ["payment_type_id"],
-          referencedTableName: "payment",
+          referencedTableName: "payment_type",
           referencedColumnNames: ["id"],
         },
       ]

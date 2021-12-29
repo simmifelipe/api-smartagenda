@@ -16,7 +16,7 @@ export class CreateAppointments1640723208337 implements MigrationInterface {
           type: "timestamp",
         },
         {
-          name: "date",
+          name: "time",
           type: "time",
         },
         {
@@ -31,7 +31,6 @@ export class CreateAppointments1640723208337 implements MigrationInterface {
           name: "payment_status",
           type: "enum",
           enum: ["pending", "paid", "partial"],
-          default: "pending",
         },
         {
           name: "customer_id",
