@@ -7,6 +7,11 @@ export class CreateAppointmentPayment1640724352884 implements MigrationInterface
       name: "appointment_payment",
       columns: [
         {
+          name: "id",
+          type: "uuid",
+          isPrimary: true,
+        },
+        {
           name: "appointment_id",
           type: "uuid",
           isPrimary: true,

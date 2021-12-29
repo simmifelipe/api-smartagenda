@@ -6,6 +6,7 @@ export class CreateEmployeeService1640310239419 implements MigrationInterface {
       new Table({
         name: "employee_service",
         columns: [
+          { name: "id", type: "uuid", isPrimary: true },
           { name: "employee_id", type: "uuid" },
           { name: "service_id", type: "uuid" },
           { name: "duration", type: "integer", isNullable: false },
