@@ -2,7 +2,7 @@
 import "reflect-metadata"
 
 import { CreateAddressUseCase } from "./CreateAddressUseCase"
-import { AddressRepositoryInMemory } from "@modules/core/repositories/in-memory/AddressRepositoryInMemory";
+import { AddressRepositoryInMemory } from "@modules/core/infra/typeorm/implementations/in-memory/AddressRepositoryInMemory";
 
 let createAddressUseCase: CreateAddressUseCase;
 let addressesRepositoryInMemory: AddressRepositoryInMemory;
