@@ -3,7 +3,7 @@ import { IAddressRepository, ICreateAddressDTO } from "@modules/core/repositorie
 
 
 class AddressRepositoryInMemory implements IAddressRepository {
-  adresses: Address[] = [];
+  addresses: Address[] = [];
 
   async create({ street, city, zipcode, number, state }: ICreateAddressDTO): Promise<void> {
     const address = new Address();
@@ -12,11 +12,11 @@ class AddressRepositoryInMemory implements IAddressRepository {
       street, city, zipcode, number, state
     });
 
-    this.adresses.push(address);
+    this.addresses.push(address);
   }
 
   async list(): Promise<Address[]> {
-    const all = this.adresses;
+    const all = this.addresses;
     return all;
   }
 }
