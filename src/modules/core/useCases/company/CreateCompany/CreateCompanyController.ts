@@ -3,8 +3,9 @@ import { Request, Response } from "express";
 import { CreateCompanyUseCase } from "./CreateCompanyUseCase";
 
 class CreateCompanyController {
+
   async handle(request: Request, response: Response) {
-    const { name, document, phone, address, email, password } = request.body;
+    const { name, document, phone, address, email } = request.body;
 
     const createCompanyUseCase = container.resolve(CreateCompanyUseCase);
     const result = await createCompanyUseCase.execute({
@@ -12,8 +13,7 @@ class CreateCompanyController {
       document,
       phone,
       address,
-      email,
-      password,
+      email
     });
 
     if (result instanceof Error) {

@@ -14,12 +14,10 @@ export class CreateAppointmentPayment1640724352884 implements MigrationInterface
         {
           name: "appointment_id",
           type: "uuid",
-          isPrimary: true,
         },
         {
           name: "payment_type_id",
           type: "uuid",
-          isPrimary: true,
         },
         {
           name: "date",

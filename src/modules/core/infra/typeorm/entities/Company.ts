@@ -17,6 +17,9 @@ export class Company {
 
   @Column()
   phone: string;
+  
+  @Column()
+  email: string;
 
   @Column()
   address_id: string;

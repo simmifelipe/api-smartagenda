@@ -15,17 +15,13 @@ class CompanyRepository implements ICompanyRepository {
     return this.repository.findOne({ where: { document: document } });
   }
 
-  async create({
-    name,
-    document,
-    phone,
-    address,
-  }: ICreateCompanyDTO): Promise<Company> {
+  async create({ name, document, phone, address, email }: ICreateCompanyDTO): Promise<Company> {
     const company = this.repository.create({
       name,
       document,
       phone,
       address,
+      email,
     });
 
     return await this.repository.save(company);

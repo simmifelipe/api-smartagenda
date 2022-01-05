@@ -1,6 +1,7 @@
 import { getRepository, Repository } from "typeorm";
 import { Address } from "@modules/core/infra/typeorm/entities/Address";
-import { IAddressRepository, ICreateAddressDTO } from "@modules/core/repositories/IAddressRepository";
+import { IAddressRepository } from "@modules/core/repositories/IAddressRepository";
+import { ICreateAddressDTO } from "@modules/core/dto/ICreateAddressDTO";
 
 class AddressRepository implements IAddressRepository {
 
@@ -18,7 +19,7 @@ class AddressRepository implements IAddressRepository {
       zipcode,
       number,
       state,
-    })
+    });
 
     await this.repository.save(address);
   }

@@ -10,9 +10,7 @@ interface IRequest {
   document: string;
   phone: string;
   address?: Address;
-
   email: string;
-  password: string;
 }
 
 @injectable()
@@ -22,14 +20,14 @@ class CreateCompanyUseCase {
     private companyRepository: ICompanyRepository
   ) { }
 
-  async execute({ name, document, phone, address, email, password }: IRequest): Promise<Company | AppError> {
+  async execute({ name, document, phone, address, email }: IRequest): Promise<Company | AppError> {
     const companyAlreadyExist = await this.companyRepository.findByDocument(document);
 
     if (companyAlreadyExist) {
       return new AppError("Company with this document number already exist", 400);
     }
 
-    return this.companyRepository.create({ name, document, phone, address, email, password });
+    return this.companyRepository.create({ name, document, phone, address, email });
   }
 }
 

@@ -26,6 +26,7 @@ describe('Create Address', () => {
     const all = await addressesRepositoryInMemory.list();
 
     expect(all).toHaveLength(1);
+
   })
 
 })

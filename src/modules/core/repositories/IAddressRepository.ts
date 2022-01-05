@@ -1,17 +1,9 @@
 import { Address } from "@modules/core/infra/typeorm/entities/Address";
-
-
-interface ICreateAddressDTO {
-  street: string;
-  city: string;
-  zipcode: string;
-  number: string;
-  state: string;
-}
+import { ICreateAddressDTO } from "../dto/ICreateAddressDTO";
 
 interface IAddressRepository {
-  create({ street, city, zipcode, number, state }: ICreateAddressDTO): Promise<void>;
+  create(data: ICreateAddressDTO): Promise<void>;
   list(): Promise<Address[]>;
 }
 
-export { IAddressRepository, ICreateAddressDTO };
+export { IAddressRepository };

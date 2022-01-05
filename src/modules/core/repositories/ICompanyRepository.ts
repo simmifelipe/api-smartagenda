@@ -10,12 +10,11 @@ interface ICreateCompanyDTO {
   address?: Address;
 
   email: string;
-  password: string;
 }
 
 interface ICompanyRepository {
 
-  create({ name, document, phone, address, email, password }: ICreateCompanyDTO): Promise<Company | AppError>;
+  create({ name, document, phone, address, email }: ICreateCompanyDTO): Promise<Company | AppError>;
   findByDocument(document: string): Promise<Company>;
 
 }

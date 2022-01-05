@@ -1,5 +1,6 @@
+import { ICreateAddressDTO } from "@modules/core/dto/ICreateAddressDTO";
 import { Address } from "@modules/core/infra/typeorm/entities/Address";
-import { IAddressRepository, ICreateAddressDTO } from "@modules/core/repositories/IAddressRepository";
+import { IAddressRepository } from "@modules/core/repositories/IAddressRepository";
 
 
 class AddressRepositoryInMemory implements IAddressRepository {
