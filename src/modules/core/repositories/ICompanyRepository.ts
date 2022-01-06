@@ -16,6 +16,7 @@ interface ICompanyRepository {
 
   create({ name, document, phone, address, email }: ICreateCompanyDTO): Promise<Company | AppError>;
   findByDocument(document: string): Promise<Company>;
+  findById(id: string): Promise<Company>;
 
 }
 

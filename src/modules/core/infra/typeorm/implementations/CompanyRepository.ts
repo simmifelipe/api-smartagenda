@@ -10,11 +10,8 @@ class CompanyRepository implements ICompanyRepository {
   constructor() {
     this.repository = getRepository(Company);
   }
-
-  async findByDocument(document: string): Promise<Company> {
-    return this.repository.findOne({ where: { document: document } });
-  }
-
+  
+  
   async create({ name, document, phone, address, email }: ICreateCompanyDTO): Promise<Company> {
     const company = this.repository.create({
       name,
@@ -23,8 +20,16 @@ class CompanyRepository implements ICompanyRepository {
       address,
       email,
     });
-
+    
     return await this.repository.save(company);
+  }
+  
+  async findByDocument(document: string): Promise<Company> {
+    return this.repository.findOne({ where: { document: document } });
+  }
+  
+  async findById(id: string): Promise<Company> {
+    return await this.repository.findOne(id);
   }
 }
 

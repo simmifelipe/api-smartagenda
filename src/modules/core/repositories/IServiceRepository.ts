@@ -7,6 +7,7 @@ interface CreateServiceDTO {
 
 interface IServiceRepository {
   create({ description, company_id }: CreateServiceDTO): Promise<Service>;
+  findByDescription({ description, company_id }: CreateServiceDTO): Promise<Service>;
   listByCompany(company_id: string): Promise<Service[]>;
 }
 
