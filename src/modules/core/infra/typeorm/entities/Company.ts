@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryColumn, Unique } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryColumn } from "typeorm";
 import { v4 as uuidV4 } from 'uuid';
 
 import { Address } from "./Address";
@@ -17,7 +17,7 @@ export class Company {
 
   @Column()
   phone: string;
-  
+
   @Column()
   email: string;
 

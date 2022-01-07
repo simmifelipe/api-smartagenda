@@ -20,7 +20,7 @@ class CreateServiceUseCase {
   ) { }
 
   async execute({ description, company_id }: IRequest): Promise<Service> {
-    const serviceAlreadyExists = await this.serviceRepository.findByDescription({description, company_id});
+    const serviceAlreadyExists = await this.serviceRepository.findByDescription({ description, company_id });
 
     if (serviceAlreadyExists) {
       throw new AppError('Service already exists');
@@ -30,7 +30,7 @@ class CreateServiceUseCase {
     if (!companyExists) {
       throw new AppError('Company does not exists');
     }
-    
+
     return await this.serviceRepository.create({ description, company_id });
   }
 }
