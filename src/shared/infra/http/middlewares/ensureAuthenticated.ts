@@ -3,6 +3,7 @@ import { verify } from "jsonwebtoken";
 
 import { AppError } from "@shared/errors/AppError";
 import { UserRepository } from "@modules/account/infra/typeorm/implementations/UserRepository";
+import auth from "@config/auth";
 
 interface IPayload {
   sub: string;
@@ -19,7 +20,7 @@ export async function ensureAuthenticated(request: Request, response: Response, 
   const [, token] = authHeader.split(" ");
 
   try {
-    const { sub: user_id } = verify(token, "1a64ebcb1de42683bc2f2ba11040bc53") as IPayload;
+    const { sub: user_id } = verify(token, auth.secret_token) as IPayload;
 
     const userRepository = new UserRepository();
     const user = userRepository.findById(user_id);

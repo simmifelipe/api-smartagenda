@@ -4,6 +4,7 @@ import { sign } from 'jsonwebtoken';
 
 import { IUserRepository } from '@modules/account/repositories/IUserRepository';
 import { AppError } from '@shared/errors/AppError';
+import auth from "@config/auth";
 
 interface IRequest {
   email: string;
@@ -38,9 +39,9 @@ class AuthenticateUserUseCase {
       throw new AppError('Email or password incorrect!');
     }
 
-    const token = sign({}, "1a64ebcb1de42683bc2f2ba11040bc53", {
+    const token = sign({}, auth.secret_token, {
       subject: user.id,
-      expiresIn: '1d',
+      expiresIn: auth.expires_in_token,
     });
 
     return {
