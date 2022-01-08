@@ -2,8 +2,8 @@
 ## Usuário
 [ ] Deve ser possível cadastrar um usuário (nome, email, senha)
 [X] Remover coluna "Admin"
-[ ] Criar campo de foto na tabela de usuário
-[ ] Criar campo "firstAccess" na tabela de usuário
+[X] Criar campo de foto na tabela de usuário
+[X] Criar campo "firstAccess" na tabela de usuário
 [ ] Criar novo usuário como funcionário
 
 ## Empresa
