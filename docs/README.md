@@ -1,15 +1,15 @@
 
 ## Usuário
-[ ] Deve ser possível cadastrar um usuário (nome, email, senha)
-[X] Remover coluna "Admin"
-[X] Criar campo de foto na tabela de usuário
-[X] Criar campo "firstAccess" na tabela de usuário
-[ ] Criar novo usuário como funcionário
+[x] Deve ser possível cadastrar um usuário (nome, email, senha)
+[x] Remover coluna "Admin"
+[x] Criar campo de foto na tabela de usuário
+[x] Criar campo "firstAccess" na tabela de usuário
+[ ] Ao criar um usuário, cria-lo também como funcionário
 
 ## Empresa
 [ ] Deve ser possivel cadastrar uma empresa (nome, user_id)
 [ ] A empresa deve ser vinculada ao usuário admin
-[X] Criar campo user_id na tabela de empresa
+[x] Criar campo user_id na tabela de empresa
 
 ## Funcionário
 [ ] Deve ser possível cadastrar um funcionário (nome, company_id)
