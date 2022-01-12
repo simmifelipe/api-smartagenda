@@ -14,16 +14,16 @@ class CreateUserUseCase {
     private userRepository: IUserRepository
   ) { }
 
-  async execute({ name, email, password, admin }: ICreateUserDTO): Promise<User> {
+  async execute({ name, email, password, first_access = true, photo, active = true }: ICreateUserDTO): Promise<User> {
     const userAlreadyExists = await this.userRepository.findByEmail(email);
 
     if (userAlreadyExists) {
-      throw new AppError('Já existe um susuário registrado com este e-mail');
+      throw new AppError('Já existe um usuário registrado com este e-mail');
     }
 
     const passwordHash = await hash(password, 8);
 
-    const user = await this.userRepository.create({ name, email, password: passwordHash, admin });
+    const user = await this.userRepository.create({ name, email, password: passwordHash, first_access, photo, active, });
     return user;
   }
 

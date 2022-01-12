@@ -1,9 +1,15 @@
+## Autenticação
+[ ] Todas as rotas, com excessão do "session", devem ser autenticadas
 
 ## Usuário
 [x] Deve ser possível cadastrar um usuário (nome, email, senha)
 [x] Remover coluna "Admin"
 [x] Criar campo de foto na tabela de usuário
 [x] Criar campo "firstAccess" na tabela de usuário
+[x] O valor padrão da coluna "firstAccess" deve ser "true" no cadastro
+[x] Deve ser possível atualizar as informações do usuário
+[x] Deve ser possível atualizar a senha do usuário
+[x] Criar coluna "active" na tabela de usuário 
 [ ] Ao criar um usuário, cria-lo também como funcionário
 
 ## Empresa

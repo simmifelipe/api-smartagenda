@@ -22,6 +22,9 @@ export class User {
   @Column()
   first_access: boolean;
 
+  @Column()
+  active: boolean;
+
   @CreateDateColumn()
   created_at: Date;
 
