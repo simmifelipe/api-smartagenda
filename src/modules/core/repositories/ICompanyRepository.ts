@@ -1,20 +1,18 @@
 import { AppError } from "@shared/errors/AppError";
-import { Address } from "@modules/core/infra/typeorm/entities/Address";
 import { Company } from "@modules/core/infra/typeorm/entities/Company";
 
 
 interface ICreateCompanyDTO {
   name: string;
   document: string;
-  phone: string;
-  address?: Address;
+  phone?: string;
+  email?: string;
 
-  email: string;
+  user_id: string;
 }
 
 interface ICompanyRepository {
-
-  create({ name, document, phone, address, email }: ICreateCompanyDTO): Promise<Company | AppError>;
+  create({ name, document, phone, email, user_id }: ICreateCompanyDTO): Promise<Company | AppError>;
   findByDocument(document: string): Promise<Company>;
   findById(id: string): Promise<Company>;
 

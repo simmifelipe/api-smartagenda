@@ -1,7 +1,6 @@
+import { User } from "@modules/account/infra/typeorm/entities/User";
 import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryColumn } from "typeorm";
 import { v4 as uuidV4 } from 'uuid';
-
-import { Address } from "./Address";
 
 @Entity()
 export class Company {
@@ -21,12 +20,9 @@ export class Company {
   @Column()
   email: string;
 
-  @Column()
-  address_id: string;
-
-  @OneToOne(() => Address)
-  @JoinColumn({ name: "address_id" })
-  address: Address;
+  @OneToOne(() => User)
+  @JoinColumn({ name: "user_id" })
+  user_id: string;
 
   @CreateDateColumn()
   created_at: Date;

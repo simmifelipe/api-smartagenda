@@ -13,7 +13,7 @@
 [ ] Ao criar um usuário, cria-lo também como funcionário
 
 ## Empresa
-[ ] Deve ser possivel cadastrar uma empresa (nome, user_id)
+[ ] Deve ser possivel cadastrar uma empresa (nome, document, user_id, email)
 [ ] A empresa deve ser vinculada ao usuário admin
 [x] Criar campo user_id na tabela de empresa
 

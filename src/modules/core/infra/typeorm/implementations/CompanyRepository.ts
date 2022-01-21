@@ -11,14 +11,13 @@ class CompanyRepository implements ICompanyRepository {
     this.repository = getRepository(Company);
   }
 
-
-  async create({ name, document, phone, address, email }: ICreateCompanyDTO): Promise<Company> {
+  async create({ name, document, phone, email, user_id }: ICreateCompanyDTO): Promise<Company> {
     const company = this.repository.create({
       name,
       document,
       phone,
-      address,
       email,
+      user_id
     });
 
     return await this.repository.save(company);
