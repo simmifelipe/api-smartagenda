@@ -20,7 +20,7 @@ class CreateServiceUseCase {
   ) { }
 
   async execute({ description, company_id }: IRequest): Promise<Service> {
-    const serviceAlreadyExists = await this.serviceRepository.findByDescription({description, company_id});
+    const serviceAlreadyExists = await this.serviceRepository.findByDescription({ description, company_id });
 
     if (serviceAlreadyExists) {
       throw new AppError('Serviço já cadastrado');
@@ -30,7 +30,7 @@ class CreateServiceUseCase {
     if (!companyExists) {
       throw new AppError('Empresa não cadastrada');
     }
-    
+
     return await this.serviceRepository.create({ description, company_id });
   }
 }

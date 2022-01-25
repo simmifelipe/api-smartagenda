@@ -5,15 +5,15 @@ import { CreateCompanyUseCase } from "./CreateCompanyUseCase";
 class CreateCompanyController {
 
   async handle(request: Request, response: Response) {
-    const { name, document, phone, address, email } = request.body;
+    const { name, document, phone, email } = request.body;
 
     const createCompanyUseCase = container.resolve(CreateCompanyUseCase);
     const result = await createCompanyUseCase.execute({
       name,
       document,
       phone,
-      address,
-      email
+      email,
+      user_id: request.user.id
     });
 
     if (result instanceof Error) {

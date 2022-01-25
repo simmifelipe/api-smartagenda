@@ -10,24 +10,23 @@ class CompanyRepository implements ICompanyRepository {
   constructor() {
     this.repository = getRepository(Company);
   }
-  
-  
-  async create({ name, document, phone, address, email }: ICreateCompanyDTO): Promise<Company> {
+
+  async create({ name, document, phone, email, user_id }: ICreateCompanyDTO): Promise<Company> {
     const company = this.repository.create({
       name,
       document,
       phone,
-      address,
       email,
+      user_id
     });
-    
+
     return await this.repository.save(company);
   }
-  
+
   async findByDocument(document: string): Promise<Company> {
-    return this.repository.findOne({ where: { document: document } });
+    return this.repository.findOne({ document });
   }
-  
+
   async findById(id: string): Promise<Company> {
     return await this.repository.findOne(id);
   }
