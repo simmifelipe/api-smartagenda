@@ -2,8 +2,8 @@ import { inject, injectable } from "tsyringe";
 
 import { AppError } from "@shared/errors/AppError";
 import { Service } from "@modules/core/infra/typeorm/entities/Service";
-import { IServiceRepository } from "@modules/core/repositories/IServiceRepository";
 import { ICompanyRepository } from "@modules/core/repositories/ICompanyRepository";
+import { IServiceRepository } from "@modules/core/repositories/IServiceRepository";
 
 interface IRequest {
   description: string;
@@ -23,12 +23,12 @@ class CreateServiceUseCase {
     const serviceAlreadyExists = await this.serviceRepository.findByDescription({description, company_id});
 
     if (serviceAlreadyExists) {
-      throw new AppError('Service already exists');
+      throw new AppError('Serviço já cadastrado');
     }
 
     const companyExists = await this.companyRepository.findById(company_id);
     if (!companyExists) {
-      throw new AppError('Company does not exists');
+      throw new AppError('Empresa não cadastrada');
     }
     
     return await this.serviceRepository.create({ description, company_id });
